@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tugas Javascript 1 - Menghitung Bangun Datar</title>
+    <style>
+      * {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      h3 {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h3>Data Bangun Datar</h3>
+
+    <!-- Persegi Panjang -->
+    <h4>Persegi Panjang</h4>
+    <p>Panjang = 13 cm</p>
+    <p>Lebar = 20 cm</p>
+
+    <!-- Bujur Sangkar -->
+    <h4>Bujur Sangkar</h4>
+    <p>Sisi = 8 cm</p>
+
+    <!-- Segitiga -->
+    <h4>Segitiga</h4>
+    <p>Alas = 10 cm</p>
+    <p>Tinggi = 5 cm</p>
+
+    <hr />
+    <h3>Perhitungan Luas</h3>
+
+    <!-- Perhitungan Luas -->
+    <script>
+      // Formulasi Luas Persegi Panjang
+      const panjang = 13;
+      const lebar = 20;
+
+      const luas_persegi_panjang = panjang * lebar;
+
+      document.write("<h4>Luas Persegi Panjang</h4>");
+      document.write("Rumus = panjang x lebar <br>");
+      document.write(`Perhitungan = ${panjang} cm x ${lebar} cm <br>`);
+      document.write(`Luas persegi panjang = ${luas_persegi_panjang} cm`);
+
+      // Formulasi Luas Bujur Sangkar
+      let sisi = 8;
+
+      const luas_persegi = sisi * sisi;
+
+      document.write("<h4>Luas Bujur Sangkar</h4>");
+      document.write("Rumus = sisi x sisi <br>");
+      document.write(`Perhitungan = ${sisi} cm x ${sisi} cm <br>`);
+      document.write(`Luas bujur sangkar = ${luas_persegi} cm `);
+
+      // Formulasi Luas Segitiga
+      const alas = 10;
+      const tinggi = 5;
+
+      const luas_segitiga = (alas * tinggi) / 2;
+
+      document.write("<h4>Luas Segitiga</h4>");
+      document.write("Rumus = 1/2 x alas x tinggi <br>");
+      document.write(`Perhitungan = 1/2 x ${alas} cm x ${tinggi} cm <br>`);
+      document.write(`Luas persegi panjang = ${luas_segitiga} cm`);
+    </script>
+  </body>
+</html>

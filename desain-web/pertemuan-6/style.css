@@ -1,0 +1,121 @@
+/* Media Screen 576px */
+
+@media (max-width: 768px) {
+
+  header {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .image-profile {
+    margin: auto;
+    display: block;
+    width: 30%;
+    border: 1px solid #dcdcdc;
+    border-radius: 20px;
+  }
+
+  .name-profile {
+    margin-top: 30px;
+    margin-bottom: 20px;
+    justify-content: center;
+    color: #404040;
+  }
+
+  .address-profile {
+    margin-top: 30px;
+    margin-bottom: 0;
+    text-align: left;
+    color: #404040;
+    list-style: none;
+    padding-left: 0;
+  }
+
+  .title-content {
+    margin-top: 20px;
+  }
+
+  .experience-name {
+    line-height: 1.5;
+  }
+  
+  .experience-detail {
+    line-height: 1.5;
+  }
+
+  li {
+    text-align: justify;
+  }
+
+  .resume-profile {
+    margin-top: 40px;
+    text-align: justify;
+  }
+
+  marquee img {
+    width: 50%;
+    border-radius: 20px;
+  }
+}
+
+
+/* Media Screen 1200px */
+@media (min-width: 768px) {
+  header {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .resume-profile {
+    margin-top: 40px;
+    text-align: justify;
+  }
+  
+  .image-profile {
+    width: 20%;
+    border: 1px solid #dcdcdc;
+    border-radius: 20px;
+  }
+  
+  .name-profile {
+    text-align: start;
+    margin-left: 60px;
+    margin-right: 200px;
+    margin-top: 110px;
+    color: #404040;
+  }
+
+  .address-profile {
+    margin-top: 20px;
+    color: #404040;
+    list-style: none;
+    padding-left: 0;
+  }
+  
+  .subtitle-profile {
+    color: #404040;
+  }
+  
+  li {
+    text-align: justify;
+  }
+  
+  .normal-bold {
+    color: #262626;
+    font-weight: lighter;
+  }
+  
+  .experience-name {
+    line-height: 1.5;
+  }
+  
+  .experience-detail {
+    line-height: 1.5;
+  }
+  
+  marquee img {
+    width: 50%;
+    border-radius: 20px;
+  }
+  
+}

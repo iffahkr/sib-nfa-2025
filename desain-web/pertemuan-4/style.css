@@ -1,0 +1,153 @@
+body {
+  font-family: cursive;
+  background-color: rgb(255, 255, 249);
+}
+
+.navbar-footer {
+    background-color: rgb(248, 248, 237);
+}
+
+.navbar {
+  font-size: large;
+}
+
+.navbar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  justify-content: center;
+  display: flex;
+}
+
+.navbar a {
+  display: block;
+  padding: 18px 16px;
+  color: black;
+  text-decoration: none;
+}
+
+.nav-link a:hover {
+  background-color: lavender;
+  border-radius: 10px;
+}
+
+.active {
+  background-color: steelblue;
+  color: aliceblue;
+  border-radius: 10px;
+}
+
+fieldset {
+  border-radius: 10px;
+  border-color: lightsteelblue;
+  margin-top: 30px;
+}
+
+legend {
+  font-size: large;
+  color: midnightblue;
+}
+
+fieldset li {
+  margin: 8px;
+}
+
+.link-sidebar {
+  text-decoration: none;
+  color: black;
+}
+
+fieldset a:hover {
+  color: cornflowerblue;
+}
+
+.home-page {
+  margin: 40px 60px;
+  padding: 30px;
+  color: #666666;
+}
+
+header {
+  display: flex;
+}
+
+.resume-profile {
+  margin-top: 40px;
+  text-align: justify;
+}
+
+.image-profile {
+  width: 20%;
+  border: 1px solid #dcdcdc;
+  border-radius: 20px;
+}
+
+.name-profile {
+  margin-left: 60px;
+  margin-top: 120px;
+  color: #404040;
+}
+
+.subtitle-profile {
+  color: #404040;
+}
+
+li {
+  text-align: justify;
+}
+
+.normal-bold {
+  color: #262626;
+  font-weight: lighter;
+}
+
+.address-profile {
+  margin-top: 20px;
+  margin-left: 120px;
+  text-align: right;
+  color: #404040;
+  list-style: none;
+}
+
+.experience-name {
+  line-height: 1.5;
+}
+
+.experience-detail {
+  line-height: 1.5;
+}
+
+.title-study {
+  margin-left: 70px;
+}
+
+table {
+  margin: 40px 70px;
+}
+
+table,
+tr,
+th,
+td {
+  border: 1px solid grey;
+  border-collapse: collapse;
+  padding: 10px;
+}
+
+th {
+  background-color: lightsteelblue;
+}
+
+tr:hover {
+  background-color: rgb(243, 234, 219);
+}
+
+marquee img {
+  width: 50%;
+  border-radius: 20px;
+}
+
+.footer {
+  text-align: center;
+  margin-top: 25px;
+}

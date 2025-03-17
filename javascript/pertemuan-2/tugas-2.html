@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tugas 2 Javascript - Tabel Data Pegawai</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+
+    <h3>Tabel Data Pegawai</h3>
+    <table id="pegawai" name="data-pegawai">
+      <thead>
+        <tr>
+          <th class="nomor">Nomor</th>
+          <th>Nama Lengkap</th>
+          <th>Umur</th>
+          <th>Jabatan</th>
+          <th>Status</th>
+          <th>Gaji Pokok</th>
+          <th>Tunjangan Jabatan</th>
+          <th>BPJS</th>
+          <th>Tunjangan Keluarga</th>
+          <th>Total Gaji</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="nomor" id="nomor"></td>
+          <td id="nama"></td>
+          <td id="umur"></td>
+          <td id="jabatan"></td>
+          <td id="statusHidup"></td>
+          <td id="gajiPokok"></td>
+          <td id="tunjanganJabatan"></td>
+          <td id="bpjs"></td>
+          <td id="tunjaganKeluarga"></td>
+          <td id="gajiKeseluruhan"></td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+            <td class="footer" colspan="9">Total Keseluruhan Gaji Pegawai</td>
+            <td id="totalGaji">0000000</td>
+        </tr>
+      </tfoot>
+    </table>
+    <script src="script.js"></script>
+  </body>
+</html>

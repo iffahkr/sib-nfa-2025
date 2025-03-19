@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tugas 3 Javascript</title>
+  </head>
+  <body>
+    <script>
+      // Data Produk
+      const produkToko = [
+        {
+          id: 1,
+          nama: "Laptop",
+          harga: 7000000,
+          stok: 5,
+        },
+        {
+          id: 2,
+          nama: "Mouse",
+          harga: 200000,
+          stok: 10,
+        },
+        {
+          id: 3,
+          nama: "Keyboard",
+          harga: 350000,
+          stok: 7,
+        },
+      ];
+
+
+      // Fungsi untuk menampilkan seluruh produk
+      function tampilkanProduk() {
+        console.log("Data Produk\t:");
+
+        produkToko.forEach((produk) => {
+          console.log(`
+                ID\t\t: ${produk.id}
+                Nama\t: ${produk.nama}
+                Harga\t: ${produk.harga}
+                Stok\t: ${produk.stok}
+            `);
+        });
+      }
+
+      // Fungsi untuk menambahkan produk
+      function tambahProduk(namaBaru, hargaBaru, stokBaru) {
+        const idBaru = produkToko.length + 1;
+        const produkBaru = { id: idBaru, nama: namaBaru, harga: hargaBaru, stok: stokBaru };
+        produkToko.push(produkBaru);
+      }
+
+      // Fungsi untuk menghapus produk berdasarkan id
+      function hapusProduk(id) {
+        const idProduk = produkToko.findIndex((produk) => produk.id === id);
+        produkToko.splice(idProduk, 1);
+      }
+
+
+      // Cetak hasil untuk menampilkan produk
+      tampilkanProduk();
+
+      // Cetak hasil untuk menambahkan produk
+      tambahProduk("Printer", 1200000, 5);
+
+      // Data produk setelah produk tertambah
+      console.log("---- Menambahkan produk printer ----");
+      tampilkanProduk();
+
+      // Cetak hasil untuk menghapus produk
+      hapusProduk(1);
+
+      // Data produk setelah produk terhapus
+      console.log("--- Menghapus data produk dengan ID 1 ---");
+      tampilkanProduk();
+    </script>
+  </body>
+</html>

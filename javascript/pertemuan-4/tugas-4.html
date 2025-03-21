@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tugas 4 Javascript | OOP & DOM</title>
+  </head>
+  <body>
+    <script>
+      // Class Pelanggan untuk menyimpan data pelanggan
+      class Pelanggan {
+        constructor(nama, nomorTelepon) {
+          this.nama = nama;
+          this.nomorTelepon = nomorTelepon;
+          this.kendaraanDisewa = [];
+        }
+
+        // Transaksi penyewaan kendaraan
+        sewaKendaraan(kendaraan) {
+          this.kendaraanDisewa = kendaraan;
+          console.log(`✅ Pelanggan dengan nama ${this.nama} telah menyewa kendaraan ${this.kendaraanDisewa}`);
+          daftarPelanggan.push(this);
+        }
+      }
+
+      // Array kosong untuk menyimpan daftar pelanggan
+      let daftarPelanggan = [];
+
+      // Fungsi untuk menampilkan daftar penyewaan kendaraan
+      function tampilkanDaftarPelanggan() {
+        console.log("\n📜 Daftar pelanggan yang terdaftar menyewa kendaraan:");
+        daftarPelanggan.forEach((pelanggan, index) => {
+          console.log(
+            `No. ${index + 1} 
+            Nama\t\t\t: ${pelanggan.nama} 
+            No. Telp\t\t: ${pelanggan.nomorTelepon}
+            Kendaraan disewa: ${pelanggan.kendaraanDisewa}`
+          );
+        });
+      }
+
+      // Mendaftarkan pelanggan
+      let pelanggan1 = new Pelanggan("Vivian", "021380088");
+      let pelanggan2 = new Pelanggan("Lula Diana", "018281109");
+
+      pelanggan1.sewaKendaraan("Motor");
+      pelanggan2.sewaKendaraan("Bus");
+
+      tampilkanDaftarPelanggan();
+    </script>
+  </body>
+</html>

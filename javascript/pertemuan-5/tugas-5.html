@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tugas 5 Javascript -</title>
+  </head>
+  <style>
+    * {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      margin: auto;
+    }
+
+    h2 {
+      text-align: center;
+      margin: 20px;
+    }
+
+    .showButton {
+      padding: 10px;
+      margin: 20px;
+      border: 1px solid orange;
+      border-radius: 8px;
+      background-color: orange;
+    }
+
+    table,
+    tr,
+    th,
+    td {
+      border: 1px solid gainsboro;
+      border-collapse: collapse;
+    }
+
+    th,
+    td {
+      padding: 10px;
+    }
+
+    th {
+      background-color: antiquewhite;
+    }
+  </style>
+  <body>
+    <h2>Manajemen Produk</h2>
+    <div class="container">
+      <button id="showAlert" class="showButton">Welcome</button>
+      <table id="pegawai" name="data-pegawai">
+        <thead>
+          <tr>
+            <th class="nomor">Nomor</th>
+            <th>Nama Produk</th>
+            <th>Harga</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="nomor" id="nomor"></td>
+            <td id="nama"></td>
+            <td id="harga"></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <script>
+      let produkList = [
+        {
+          id: 1,
+          nama: "Laptop",
+          harga: 12000000,
+        },
+        {
+          id: 2,
+          nama: "Smartphone",
+          harga: 5000000,
+        },
+        {
+          id: 3,
+          nama: "Mesin Cuci",
+          harga: 3500000,
+        },
+        {
+          id: 4,
+          nama: "Refrigrator",
+          harga: 30000000,
+        },
+        {
+          id: 5,
+          nama: "Headphone",
+          harga: 800000,
+        },
+      ];
+
+      const tabelBody = document.querySelector("tbody");
+      tabelBody.innerHTML = "";
+
+      // Tombol untuk menampilkan alert
+      const showAlert = document.getElementById("showAlert");
+      showAlert.addEventListener("click", function () {
+        alert("Selamat datang di manajemen produk.");
+      });
+
+      // Fungsi untuk menampilkan produk dengan destructuring
+      function tampilkanProduk() {
+        // Console log dengan destructing
+        console.log("\n📜 Daftar produk terbaru.");
+        for (const { id, nama, harga } of produkList) {
+          console.log(
+            `
+            ID: ${id}, 
+            Nama produk: ${nama}, 
+            Harga: ${harga}
+            `
+          );
+        }
+
+        // Tampilan UI
+        produkList.forEach((produk, id) => {
+          let row = `
+        <tr>
+            <td>${id + 1}</td>
+            <td>${produk.nama}</td>
+            <td>${produk.harga.toLocaleString()}</td>
+        </tr>
+          `;
+
+          tabelBody.innerHTML += row;
+        });
+      }
+
+      // Fungsi untuk menambahkan produk dengan spread operator
+      function tambahProduk(id, nama, harga) {
+        console.log("✅ Produk berhasil ditambahkan.");
+
+        produkList = [...produkList, { id, nama, harga }];
+        console.log(`
+        ID: ${id},
+        Nama produk: ${nama},
+        Harga: ${harga.toLocaleString()}
+        `);
+      }
+      // Fungsi untuk menghapus produk dengan rest parameter
+      function hapusProduk(...ids) {
+        for (let id of ids) {
+          const idProduk = produkList.findIndex((produk) => produk.id === id);
+          produkList.splice(idProduk, 1);
+          console.log(`\n✅ Produk dengan ID ${id} berhasil dihapus.`);
+        }
+      }
+
+      // Contoh penggunaan
+      tambahProduk(6, "Tablet", 5000000);
+      hapusProduk(2);
+
+      tampilkanProduk();
+    </script>
+  </body>
+</html>

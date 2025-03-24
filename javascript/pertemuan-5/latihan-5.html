@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Destructuring</title>
+  </head>
+  <body>
+    <button id="myButton">Katakan peta</button>
+    <script>
+      let button = document.getElementById("myButton");
+
+      button.addEventListener("click", function () {
+        alert("Peta peta peta");
+      });
+
+      button.addEventListener("click", function () {
+        console.log("Ini adalah peta");
+      });
+
+      let product = ["Tablet", "Phone", "Laptop"];
+
+      function addProduct(...newProduct) {
+        product = [...product, ...newProduct];
+        console.log(`New product was success added: ${newProduct}`);
+      }
+
+      function showProduct() {
+        console.log(`Newer list of product: ${product}`);
+      }
+
+      function copyProduct() {
+        return [...product];
+      }
+
+      console.log("Product before added: ")
+      showProduct();
+
+      addProduct("Speaker", "TWS");
+      showProduct();
+
+      const produkCadangan = copyProduct();
+      console.log(`Produk cadangan: ${produkCadangan}`);
+
+      addProduct("Mouse", "Keyboard");
+      showProduct();
+
+      console.log(`Produk cadangan setelah perubahan ${produkCadangan}`);
+
+      //
+
+      let daftarProduk = [
+        {
+          id: 1,
+          nama: "Gelas",
+          harga: 5000,
+          stok: 100,
+        },
+        {
+          id: 2,
+          nama: "Kipas Tangan",
+          harga: 1000,
+          stok: 150,
+        },
+        {
+          id: 3,
+          nama: "Jam Dinding",
+          harga: 25000,
+          stok: 90,
+        },
+      ];
+
+      function tampilkanProduk() {
+        console.log("Daftar produk tersedia: ");
+        daftarProduk.forEach(({ id, nama, harga }) => {
+          console.log(`
+          ID: ${id}, 
+          Nama Produk: ${nama}, 
+          HargaProduk: ${harga}`);
+        });
+      }
+
+      function tambahProduk(id, nama, harga, stok) {
+        console.log("\nDitambahkan produk baru: ");
+        daftarProduk = [...daftarProduk, { id, nama, harga, stok }];
+        console.log(`
+        Produk baru berhasil ditambahkan: 
+        ID = ${id}, 
+        Nama = ${nama}, 
+        Harga = ${harga}, 
+        Stok = ${stok}`);
+      }
+
+      // TO DO: Tambahkan event handler
+
+      tampilkanProduk();
+      tambahProduk(4, "Lilin", 10000, 75);
+
+      tampilkanProduk();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tugas 6 Javascript Module & jQuery</title>
+  </head>
+  <body>
+    <script type="module">
+        import { index, store, destroy } from "./controller.mjs";
+      const main = () => {
+          // Tampilkan data awal
+          index();
+          console.log("");
+
+          // Hapus data dan tampilkan data terbaru menggunakan splice
+          destroy(1);
+          index();
+          console.log("")
+
+          // Tambahkan data dan tampilkan data terbaru
+          store("Sansan Alfaruq", 12, "Jl. Cilegon, No.205, Banten", "sansanii12@gmail.com");
+          store("Bennie Eilish", 24, "Jl. San Sequoia, Blok A001, Latina", "heybenniee@gmail.com");
+          index();
+          console.log("")
+      }
+
+      main();
+    </script>
+  </body>
+</html>

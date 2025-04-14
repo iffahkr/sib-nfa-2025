@@ -1,37 +1,23 @@
-function Book() {
+import { Link } from "react-router";
+
+export default function ProductList() {
   return (
     <>
       <div className="container">
-        {/* Hero */}
-        <div className="container my-5">
-          <div className="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
-            <div className="col-lg-7 p-3 p-lg-5 pt-lg-3">
-              <h1 className="display-4 fw-bold lh-1 text-body-emphasis">Atomic Habits: </h1>
-              <h3 className="display-6 fw-light lh-1 text-body-emphasis">Perubahan kecil yang memberikan hasil luar biasa.</h3>
-              <p className="lead">Cara mudah dan terbukti untuk membentuk kebiasaan baik dan menghilangkan kebiasaan buruk.</p>
-              <div className="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3">
-                <button type="button" className="btn btn-primary btn-lg px-4 me-md-2 fw-bold">
-                  Buy now
-                </button>
-                <button type="button" className="btn btn-outline-secondary btn-lg px-4">
-                  Detail
-                </button>
-              </div>
-            </div>
-            <div className="col-lg-4 offset-lg-1 p-0 overflow-hidden shadow-lg">
-              <img className="rounded-lg-3" src="https://cdn2.penguin.com.au/covers/original/9781473565425.jpg" alt="" width="720" />
-            </div>
-          </div>
-        </div>
-
-        {/* Product List */}
         {/* Section 1 */}
-
         <section className="py-5 text-center container">
-          <div className="row pt-lg-5 mb-2">
+          <div className="row py-lg-5">
             <div className="col-lg-6 col-md-8 mx-auto">
               <h1 className="fw-light">Best Selling Book</h1>
               <p className="lead text-body-secondary">Kumpulan buku terlaris sepanjang periode 2020 hingga saat ini dengan total penjualan 10.000+ eksemplar.</p>
+              <p>
+                <Link to="" className="btn btn-primary my-2 m-2">
+                  Views
+                </Link>
+                <Link to="" className="btn btn-secondary my-2">
+                  Other Books
+                </Link>
+              </p>
             </div>
           </div>
         </section>
@@ -236,6 +222,7 @@ function Book() {
             </div>
           </div>
         </section>
+        
         <div className="album py-5">
           <div className="container">
             <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
@@ -346,37 +333,7 @@ function Book() {
             </div>
           </div>
         </div>
-
-        {/* Footer */}
-        <div class="container">
-          <footer class="py-3 my-4">
-            <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-              <li class="nav-item">
-                <a href="./App.jsx" class="nav-link px-2 text-body-secondary">
-                  Home
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="./Book.jsx" class="nav-link px-2 text-body-secondary">
-                  Book
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="./Team.jsx" class="nav-link px-2 text-body-secondary">
-                  Team
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="./Contact.jsx" class="nav-link px-2 text-body-secondary">
-                  Contact
-                </a>
-              </li>
-            </ul>
-            <p class="text-center text-body-secondary">&copy; 2025 NF Academy</p>
-          </footer>
-        </div>
       </div>
     </>
   );
 }
-export default Book;

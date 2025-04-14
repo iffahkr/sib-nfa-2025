@@ -1,0 +1,26 @@
+header {
+  background-color: #212529;
+}
+#brand {
+  color: #fff;
+}
+
+#navigation {
+  color: #fff;
+  margin-right: 20px;
+}
+
+#login {
+  border-color: #9883da;
+  color: #9883da;
+}
+
+#login:hover {
+  background-color: #9883da;
+  color: #fff;
+}
+
+#register {
+    background-color: #9883da;
+    border-color: #9883da
+}

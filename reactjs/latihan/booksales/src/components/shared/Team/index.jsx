@@ -1,7 +1,9 @@
-function Team() {
+import { Link } from "react-router";
+
+export default function Team() {
   return (
     <>
-      <div className="container text-center">
+      <div className="container text-center my-5">
         <div className="row">
           <div className="col-lg-4">
             <svg className="bd-placeholder-img rounded-circle mb-3" width="140" height="140" xmlns="http://www.w3.org/2000/svg">
@@ -13,9 +15,9 @@ function Team() {
             <h2 className="fw-normal">Jevin</h2>
             <p>Jevin adalah pengembang sekaligus head of research dari website bookstore.</p>
             <p>
-              <a className="btn btn-secondary" href="#">
+              <Link to="#" className="btn btn-secondary">
                 Contact me
-              </a>
+              </Link>
             </p>
           </div>
           <div className="col-lg-4">
@@ -28,9 +30,9 @@ function Team() {
             <h2 className="fw-normal">Ipah</h2>
             <p>Ipah adalah pengembang sekaligus pencetus website bookstore.</p>
             <p>
-              <a className="btn btn-secondary" href="#">
+              <Link to="#" className="btn btn-secondary">
                 Contact me
-              </a>
+              </Link>
             </p>
           </div>
           <div className="col-lg-4">
@@ -43,44 +45,13 @@ function Team() {
             <h2 className="fw-normal">Hasan</h2>
             <p>Hasan adalah data engineer yang bertanggung jawab mengelola data website bookstore.</p>
             <p>
-              <a className="btn btn-secondary" href="#">
+              <Link to="#" className="btn btn-secondary">
                 Contact me
-              </a>
+              </Link>
             </p>
           </div>
-        </div>
-
-        {/* Footer */}
-        <div class="container">
-          <footer class="py-3 my-4">
-            <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-              <li class="nav-item">
-                <a href="./App.jsx" class="nav-link px-2 text-body-secondary">
-                  Home
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="./Book.jsx" class="nav-link px-2 text-body-secondary">
-                  Book
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="./Team.jsx" class="nav-link px-2 text-body-secondary">
-                  Team
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="./Contact.jsx" class="nav-link px-2 text-body-secondary">
-                  Contact
-                </a>
-              </li>
-            </ul>
-            <p class="text-center text-body-secondary">&copy; 2025 NF Academy</p>
-          </footer>
         </div>
       </div>
     </>
   );
 }
-
-export default Team;

@@ -1,10 +1,10 @@
 import { BrowserRouter, Route, Routes } from "react-router";
-import Home from "./pages";
-import Books from "./pages/books";
-import Contacts from "./pages/contact";
-import Teams from "./pages/team";
+import Home from "./Pages";
 import LoginForm from "./components/shared/LoginForm";
 import Register from "./components/shared/RegisterForm";
+import Contacts from "./pages/contact";
+import Teams from "./pages/team";
+import Books from "./pages/books";
 
 function App() {
   return (

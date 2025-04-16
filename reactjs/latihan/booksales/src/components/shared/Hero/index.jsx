@@ -18,7 +18,7 @@ export default function Hero() {
               </div>
             </div>
             <div className="col-lg-4 offset-lg-1 p-0 overflow-hidden shadow-lg">
-              <img className="rounded-lg-3" src="https://cdn2.penguin.com.au/covers/original/9781473565425.jpg" alt="" width="720" />
+              <img className="rounded-lg-3 w-100" src="https://cdn2.penguin.com.au/covers/original/9781473565425.jpg" alt="" width="720" />
             </div>
           </div>
         </div>

@@ -1,0 +1,77 @@
+const books = [
+    {
+        id: 1,
+        title: "Atomic Habits",
+        author: "James Clear",
+        year: 2018,
+        description: "Cara mudah dan terbukti untuk membentuk kebiasaan baik dan menghilangkan kebiasaan buruk.",
+        image: "https://tse3.mm.bing.net/th?id=OIP.40YdU1lR2EQdFRfSxnTERQHaHa&pid=Api",
+    },
+    {
+        id: 2,
+        title: "Jika Kita Tak Pernah Jadi Apa-Apa",
+        author: "Alvi Syahrin",
+        year: 2020,
+        description: "Kumpulan narasi pendek yang menggambarkan kekhawatiran dan harapan generasi muda terhadap masa depan.",
+        image: "https://tse4.mm.bing.net/th?id=OIP.Wx8qwRRL6fmH_ZQMJe-bugHaK0&w=200&h=292&c=7",
+    },
+    {
+        id: 3,
+        title: "Perjamuan Khong Guan",
+        author: "Joko Pinurbo",
+        year: 2016,
+        description: "Kaleng Khong Guan menjadi simbol kehidupan dalam kumpulan puisi ini.",
+        image: "https://tse3.mm.bing.net/th?id=OIP.sGaVLhkjdOt1YehioUoO7gHaJ4&pid=Api",
+    },
+    {
+        id: 4,
+        title: "Generasi Kembali ke Akar",
+        author: "Dr. Muhammad Faisal",
+        year: 2016,
+        description: "Macam-macam karakteristik generasi di Indonesia, termasuk milenial dan gen-Z, serta pentingnya kembali memahami akar budaya dan identitas Indonesia.",
+        image: "https://tse2.mm.bing.net/th?id=OIP.zdLSrFiT25J6ae5oyYVgIwHaIu&pid=Api",
+    },
+    {
+        id: 5,
+        title: "Tanah Para Bandit",
+        author: "Tere Liye",
+        year: 2016,
+        description: "Perjuangan dan petualangan di tengah konflik yang melibatkan para bandit.",
+        image: "https://ebook.twointomedia.com/wp-content/uploads/2023/03/Tanah-Para-Bandit-by-Tere-Liye.jpeg",
+    },
+    {
+        id: 6,
+        title: "Home Sweet Loan",
+        author: "Almira Bastari",
+        year: 2016,
+        description: "Menyoroti perjuangan kaum kelas menengah di Jakarta untuk memiliki tempat tinggal serta kisah cinta dan persahabatan empat orang sahabat dengan latar belakang berbeda.",
+        image: "https://tse3.mm.bing.net/th?id=OIP.RG1fS_3MJP4lQ0eznKJG2gHaK-&w=200&h=296&c=7",
+    },
+    {
+        id: 7,
+        title: "H.R. Rasuna Said: Singa Podium",
+        author: "Khairul Jasmi",
+        year: 2016,
+        description: "Kegigihan perjuangan pahlawan nasional Rasuna Said dalam memperjuangkan kemerdekaan dan kemajuan kaumnya, dari masa kecilnya di Maninjau hingga kiprahnya di dunia politik dan pendidikan.",
+        image: "https://tse2.mm.bing.net/th?id=OIP.aPbHOpJ1rMk_luhOKPzzOwHaE8&w=200&h=133&c=7",
+    },
+    {
+        id: 8,
+        title: "Filosofi Teras",
+        author: "Henry Manampiring",
+        year: 2018,
+        description: "Memperkenalkan ajaran Stoikisme dalam konteks kehidupan modern. Dengan bahasa yang ringan, membantu pembaca mengelola emosi negatif dan membentuk mental yang tangguh dalam menghadapi tantangan hidup.",
+        image: "https://tse2.mm.bing.net/th?id=OIP.FHXCFcl-mOyS2hPhlu080gHaK0&pid=Api",
+    },
+    {
+        id: 9,
+        title: "The 5AM Club",
+        author: "Robin Sharma",
+        year: 2018,
+        description: "Pentingnya rutinitas pagi dalam meningkatkan produktivitas dan kebahagiaan.",
+        image: "https://tse1.mm.bing.net/th?id=OIP.-FkAx5gsmOcOMEhkIHblMgHaLU&w=200&h=305&c=7",
+    },
+    
+];
+
+export default books;

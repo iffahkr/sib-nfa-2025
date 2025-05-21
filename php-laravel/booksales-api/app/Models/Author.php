@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Author extends Model
 {
-    protected $genres = 'genres';
+    protected $table = 'authors';
 
+    protected $guarded = ['id'];
 }

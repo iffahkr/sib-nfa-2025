@@ -10,19 +10,11 @@ Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:sanctum');
 
-Route::prefix('/books')->group(function (){
-    Route::get('/index', [BookController::class, 'index']);
-    Route::post('/store', [BookController::class, 'store']);
-});
+// Route Books API
+Route::apiResource('/books', BookController::class);
 
+// Route Genres API
+Route::apiResource('/genres', GenreController::class);
 
-Route::prefix('/genres')->group(function () {
-    Route::get('/index', [GenreController::class, 'index']);
-    Route::post('/store', [GenreController::class, 'store']);
-});
-
-
-Route::prefix('/authors')->group(function () {
-    Route::get('/index', [AuthorController::class, 'index']);
-    Route::post('/store', [AuthorController::class, 'store']);
-});
+// Route Authors API
+Route::apiResource('/authors', AuthorController::class);

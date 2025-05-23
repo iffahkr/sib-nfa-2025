@@ -9,5 +9,5 @@ class Genre extends Model
     protected $table = 'genres';
 
     // Mass assignment guarded
-    protected $guarded = ['id'];
+    protected $fillable = ['name', 'description'];
 }

@@ -16,35 +16,31 @@ Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
 Route::post('/logout', [AuthController::class, 'logout'])->middleware('auth:api');
 
-// Method tanpa login
-// Dapat diakses oleh semua role
-
-Route::apiResource('/books', BookController::class)->only(['index', 'show']);
-    
-Route::apiResource('/genres', GenreController::class)->only(['index', 'show']);
-    
-Route::apiResource('/authors', AuthorController::class)->only(['index', 'show']);
-
-
-
 // Harus login dengan token
 
 Route::middleware(['auth:api'])->group(function () {
-    Route::apiResource('/transactions', TransactionController::class)->only('index', 'store', 'show');
+
+    Route::apiResource('/books', BookController::class)->only(['update', 'show', 'store']);
+        
+    Route::apiResource('/genres', GenreController::class)->only(['update', 'show', 'store']);
+        
+    Route::apiResource('/authors', AuthorController::class)->only(['update', 'show', 'store']);
+
+    Route::apiResource('/transactions', TransactionController::class)->only(['update', 'store', 'show']);
     
     // Hanya dapat diakses oleh admin
     Route::middleware(['role:admin'])->group(function () {
         // Route Books
-        Route::apiResource('/books', BookController::class)->only(['update', 'store', 'destroy']);
+        Route::apiResource('/books', BookController::class)->only(['index', 'destroy']);
     
         // Route Genres
-        Route::apiResource('/genres', GenreController::class)->only(['update', 'store', 'destroy']);
+        Route::apiResource('/genres', GenreController::class)->only(['index', 'destroy']);
         
         // Route Authors
-        Route::apiResource('/authors', AuthorController::class)->only(['update', 'store', 'destroy']);
+        Route::apiResource('/authors', AuthorController::class)->only(['index', 'destroy']);
 
         // Route Transactions
-        Route::apiResource('/transactions', TransactionController::class)->only('update', 'destroy');
+        Route::apiResource('/transactions', TransactionController::class)->only(['index', 'destroy']);
     });
 
 });

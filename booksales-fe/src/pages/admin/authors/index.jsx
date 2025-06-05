@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { getAuthors } from "../../../_services/authors";
+import { deleteAuthor, getAuthors } from "../../../_services/authors";
 import { Link } from "react-router-dom";
 
 const AdminAuthors = () => {
@@ -19,6 +19,17 @@ const AdminAuthors = () => {
 
   const toggleDropdown = (id) => {
     setOpenDropdownId(openDropdownId === id ? null : id);
+  };
+
+  const handleDelete = async (id) => {
+    const confirmDelete = window.confirm(
+      "Apakah Anda yakin ingin menghapus item ini?"
+    );
+
+    if (confirmDelete) {
+      await deleteAuthor(id);
+      setAuthors(authors.filter((author) => author.id !== id));
+    }
   };
   return (
     <div>
@@ -146,13 +157,13 @@ const AdminAuthors = () => {
                                   to={`/admin/authors/edit/${author.id}`}
                                   className="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                                 >
-                                  Ubah
+                                  Edit
                                 </Link>
                               </li>
                             </ul>
                             <div className="py-1">
                               <button
-                                onClick={""}
+                                onClick={() => handleDelete(author.id)}
                                 className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
                               >
                                 Hapus

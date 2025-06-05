@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { getGenres } from "../../../_services/genres";
+import { deleteGenre, getGenres } from "../../../_services/genres";
 import { Link } from "react-router-dom";
 
 const AdminGenres = () => {
@@ -19,6 +19,17 @@ const AdminGenres = () => {
 
   const toggleDropdown = (id) => {
     setOpenDropdownId(openDropdownId === id ? null : id);
+  };
+
+  const handleDelete = async (id) => {
+    const confirmDelete = window.confirm(
+      "Apakah Anda yakin ingin menghapus item ini?"
+    );
+
+    if (confirmDelete) {
+      await deleteGenre(id);
+      setGenres(genres.filter((genre) => genre.id !== id));
+    }
   };
 
   return (
@@ -149,7 +160,7 @@ const AdminGenres = () => {
                             </ul>
                             <div className="py-1">
                               <button
-                                onClick={""}
+                                onClick={() => handleDelete(genre.id)}
                                 className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
                               >
                                 Hapus

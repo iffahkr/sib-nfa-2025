@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
-import { showAuthor, updateAuthor } from '../../../_services/authors';
+import React, { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import { showAuthor, updateAuthor } from "../../../_services/authors";
+import { authorImageStorage } from "../../../_api";
 
 const EditAuthor = () => {
   const { id } = useParams();
@@ -15,9 +16,7 @@ const EditAuthor = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const [authorData] = await Promise.all([
-        showAuthor(id),
-      ]);
+      const [authorData] = await Promise.all([showAuthor(id)]);
 
       setFormData({
         name: authorData.name,
@@ -123,6 +122,15 @@ const EditAuthor = () => {
                 >
                   Foto sampul
                 </label>
+                <img
+                  src={
+                    formData.photo instanceof File
+                      ? URL.createObjectURL(formData.photo)
+                      : `${authorImageStorage}/${formData.photo}`
+                  }
+                  alt="Preview"
+                  className="w-32 h-32 object-cover rounded"
+                />
                 <input
                   type="file"
                   name="photo"
@@ -147,6 +155,6 @@ const EditAuthor = () => {
       </section>
     </div>
   );
-}
+};
 
 export default EditAuthor;

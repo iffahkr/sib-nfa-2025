@@ -1,7 +1,33 @@
-import React from "react";
-import { Link, Outlet } from "react-router-dom";
+import React, { useEffect } from "react";
+import { Link, Outlet, useNavigate } from "react-router-dom";
+import { logout, useDecodeToken } from "../_services/auth";
 
 const AdminLayout = () => {
+  const token = localStorage.getItem("accessToken");
+  const decodedData = useDecodeToken(token);
+  const navigate = useNavigate();
+
+  const userInfo = JSON.parse(localStorage.getItem("userInfo"));
+
+  useEffect(() => {
+    if (!token || !decodedData || !decodedData.success) {
+      navigate("/login");
+    }
+
+    const role = userInfo.role;
+    if (role !== "admin" || !role) {
+      navigate("/");
+    }
+  }, [token, decodedData, navigate]);
+
+  const handleLogout = async () => {
+    if (token) {
+      await logout({ token, userInfo });
+      localStorage.removeItem("userInfo");
+      navigate("/login");
+    }
+  };
+
   return (
     <div>
       <div className="antialiased bg-gray-50 dark:bg-gray-900">
@@ -52,7 +78,7 @@ const AdminLayout = () => {
                   alt="Flowbite Logo"
                 />
                 <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
-                  Flowbite
+                  Dashboard
                 </span>
               </Link>
             </div>
@@ -79,6 +105,12 @@ const AdminLayout = () => {
                 </svg>
               </button>
 
+              <Link
+                to={""}
+                className="text-gray-800 dark:text-white hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800"
+              >
+                {userInfo.name}
+              </Link>
               <button
                 type="button"
                 className="flex mx-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
@@ -283,6 +315,14 @@ const AdminLayout = () => {
                   </svg>
                   <span className="ml-3">Help</span>
                 </Link>
+              </li>
+              <li>
+                <button
+                  onClick={handleLogout}
+                  className="flex items-center p-2 text-base bg-red-100 font-medium text-gray-900 rounded-lg transition duration-75 hover:bg-red-200 dark:hover:bg-gray-700 dark:text-white group"
+                >
+                  <span className="ml-3">Logout</span>
+                </button>
               </li>
             </ul>
           </div>

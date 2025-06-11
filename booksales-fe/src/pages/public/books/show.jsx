@@ -1,11 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { showBook } from "../../../_services/books";
-import { Link, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { bookImageStorage } from "../../../_api";
+import { createTransaction } from "../../../_services/transactions";
 
 const ShowBook = () => {
   const { id } = useParams();
   const [book, setBook] = useState([]);
+  const [quantity, setQuantity] = useState(1);
+
+  const accessToken = localStorage.getItem("accessToken");
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -17,6 +22,28 @@ const ShowBook = () => {
     fetchData();
   }, [id]);
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (!accessToken) {
+      window.alert("Silakan login terlebih dahulu");
+      navigate("/login");
+      return;
+    }
+
+    try {
+      const payload = {
+        book_id: id,
+        quantity: quantity,
+      };
+      await createTransaction(payload);
+      window.alert("Pembelian berhasil");
+    } catch (error) {
+      console.log(error);
+      throw error;
+    }
+  };
+
   return (
     <div>
       <section className="py-8 bg-white md:py-16 dark:bg-gray-900 antialiased">
@@ -24,7 +51,7 @@ const ShowBook = () => {
           <div className="lg:grid lg:grid-cols-2 lg:gap-8 xl:gap-16">
             <div className="shrink-0 max-w-md lg:max-w-lg mx-auto">
               <img
-                class="w-full "
+                className="w-64"
                 src={`${bookImageStorage}/${book.cover_photo}`}
                 alt=""
               />
@@ -111,41 +138,46 @@ const ShowBook = () => {
 
               <hr className="my-6 md:my-8 border-gray-200 dark:border-gray-800" />
 
-              <p class="mt-7 font-bold text-gray-900 dark:text-gray-400">
+              <p className="mt-7 font-bold text-gray-900 dark:text-gray-400">
                 Genre buku:
               </p>
-              <p class="font-bold my-4 text-gray-900 dark:text-gray-400">
+              <p className="font-bold my-4 text-gray-900 dark:text-gray-400">
                 Penulis:
               </p>
 
-              <p class="my-5 text-gray-500 dark:text-gray-400">{book.description}</p>
+              <p className="my-5 text-gray-500 dark:text-gray-400">
+                {book.description}
+              </p>
 
               <div className="my-5 sm:gap-4 sm:items-center sm:flex sm:mt-8">
-                <Link
-                  to={"#"}
-                  title=""
-                  class="text-white mt-4 sm:mt-0 bg-indigo-700 hover:bg-indigo-800 focus:ring-4 focus:ring-indigo-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-indigo-600 dark:hover:bg-indigo-700 focus:outline-none dark:focus:ring-indigo-800 flex items-center justify-center"
-                  role="button"
+                <form
+                  onSubmit={handleSubmit}
+                  className="mt-6 sm:mt-8 space-y-4"
                 >
-                  <svg
-                    class="w-5 h-5 -ms-2 me-2"
-                    aria-hidden="true"
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      stroke="currentColor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M4 4h1.5L8 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm.75-3H7.5M11 7H6.312M17 4v6m-3-3h6"
+                  <div>
+                    <label
+                      htmlFor="quantity"
+                      className="block text-sm font-medium text-gray-700 dark:text-white"
+                    >
+                      Jumlah
+                    </label>
+                    <input
+                      type="number"
+                      id="quantity"
+                      name="quantity"
+                      value={quantity}
+                      min={1}
+                      onChange={(e) => setQuantity(e.target.value)}
+                      className="mt-1 block w-24 px-3 py-2 border border-gray-300 rounded-md shadow-sm dark:bg-gray-800 dark:border-gray-600 dark:text-white focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                     />
-                  </svg>
-                  Keranjang
-                </Link>
+                  </div>
+                  <button
+                    type="submit"
+                    className="text-white mt-4 sm:mt-0 bg-indigo-700 hover:bg-indigo-800 focus:ring-4 focus:ring-indigo-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-indigo-600 dark:hover:bg-indigo-700 focus:outline-none dark:focus:ring-indigo-800 flex items-center justify-center"
+                  >
+                    Beli
+                  </button>
+                </form>
               </div>
             </div>
           </div>

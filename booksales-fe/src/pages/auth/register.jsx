@@ -34,22 +34,26 @@ const Register = () => {
     setError(null);
 
     if (!validatePassword(formData.password)) {
-      setError(
-        "Password must at least 8 characters."
-      );
+      setError("Password must at least 8 characters.");
       setLoading(false);
       return;
     }
 
     try {
-      await register(formData);
+      const response = await register(formData);
+
+      localStorage.setItem("userInfo", JSON.stringify(response.data));
+
       return navigate("/login");
     } catch (error) {
-      setError(error?.response?.data?.message);
+      setError(error?.response?.data?.email);
     } finally {
       setLoading(false);
     }
+
   };
+
+  console.log(localStorage.getItem("userInfo"));
 
   return (
     <div>
